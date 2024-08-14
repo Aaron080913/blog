@@ -75,3 +75,16 @@ def comment_edit(request, slug, comment_id):
             messages.add_message(request, messages.ERROR, 'Error updating comment, Please Try Again')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+def comment_delete(request, slug, comment_id):
+    queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment has been deleted')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete comments you have made')
+
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
