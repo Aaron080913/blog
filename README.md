@@ -42,7 +42,7 @@ AJ's Travel Blog is A site that hosts The content creator AJ can keep all of his
 ### Validator Testing 
 
 - HTML
-  - No errors were returned when passing through the official [W3C validator]()
+  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fproject-blog-92b414fbb7f1.herokuapp.com%2F)
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator]()
 
