@@ -40,27 +40,24 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
+                        <a class="nav-link {% if request.path == home_url %}active" aria-current="page {% endif %}"
                             href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item"><a class="nav-link 
-                        {% if request.path == about_url %}
-                        active
-                        {% endif %}"
-                        aria-current="page"
+                        {% if request.path == about_url %}active"aria-current="page  {% endif %}"
                         href="{% url 'about' %}">About</a>
                     </li>
 {% if user.is_authenticated %}
     <li class="nav-item">
-	    <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+	    <a class="nav-link {% if request.path == logout_url %}active" aria-current="page {% endif %}" href="{% url 'account_logout' %}">Logout</a>
     </li>
 {% else %}
     <li class="nav-item">
-	    <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+	    <a class="nav-link {% if request.path == signup_url %}active" aria-current="page {% endif %}"
 		href="{% url 'account_signup' %}">Register</a>
     </li>
     <li class="nav-item">
-	    <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
+	    <a class="nav-link {% if request.path == login_url %}active" aria-current="page {% endif %}" href="{% url 'account_login' %}">Login</a>
     </li>
 {% endif %}
 
@@ -87,7 +84,7 @@
         {% if user.is_authenticated %}
             <p class="text-end m-3">You are logged in as {{ user }}</p>
             {% else %}
-            <p class="text-end m-3">please login in to view Content</p>
+            <p class="text-end m-3">You are currently not logged in</p>
         {% endif %}
 
         {% block content %}
